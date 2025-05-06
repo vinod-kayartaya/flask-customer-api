@@ -18,5 +18,27 @@ pipeline {
                 """
             }
         }
+
+        stage('Unit Tests') {
+            steps {
+                echo "running unit tests"
+                sh """
+                . ${ENV_DIR}/bin/activate
+                python -m pytest
+                """
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "Build succeeded"
+        }
+        failure {
+            echo "Build failed"
+        }
+        always {
+            cleanWs()
+        }
     }
 }
