@@ -33,7 +33,7 @@ pipeline {
             steps {
                 sh """
                 . ${ENV_DIR}/bin/activate
-                gunicorn run:app -b 0.0.0.0:1234
+                nohup gunicorn run:app -b 0.0.0.0:1234 > app_logs.txt 2>&1 &
                 """
             }
         }
