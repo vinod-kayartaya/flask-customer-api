@@ -33,7 +33,7 @@ pipeline {
     post {
         success {
             echo "Build succeeded"
-            emailext to: "vinod@vinod.co"
+            emailext subject: "Build success", to: "vinod@vinod.co"
         }
         failure {
             echo "Build failed"
