@@ -4,7 +4,7 @@ pipeline {
     environment {
         ENV_DIR = '.venv'
         REQUIREMENTS_FILE = 'requirements.txt'
-        PYTHON_VERSION = 3.12
+        PYTHON_VERSION = 3
     }
 
     stages {
