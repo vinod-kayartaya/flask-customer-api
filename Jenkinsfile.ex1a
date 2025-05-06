@@ -32,6 +32,12 @@ pipeline {
     post {
         success {
             echo "Build succeeded"
+            emailext subject: 'Build Successful',
+                 body: """
+                 Your build is successfull.
+                 Congratulations
+                 """,
+                 to: 'vinod@vinod.co'
         }
         failure {
             echo "Build failed"
