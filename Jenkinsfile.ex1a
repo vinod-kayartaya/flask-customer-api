@@ -12,8 +12,7 @@ pipeline {
                 echo 'setting up the virtual directory for python'
                 bat """
                 python -m venv ${ENV_DIR}
-                ${ENV_DIR}\\Scripts\\activate.bat
-                pip install -r ${REQUIREMENTS_FILE}
+                call ${ENV_DIR}\\Scripts\\activate && pip install -r ${REQUIREMENTS_FILE}
                 """
             }
         }
@@ -22,8 +21,7 @@ pipeline {
             steps {
                 echo "running unit tests"
                 bat """
-                ${ENV_DIR}\\Scripts\\activate.bat
-                python -m pytest
+                call ${ENV_DIR}\\Scripts\\activate && python -m pytest
                 """
             }
         }
