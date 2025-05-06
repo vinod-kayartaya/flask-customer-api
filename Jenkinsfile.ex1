@@ -28,6 +28,15 @@ pipeline {
                 """
             }
         }
+
+        stage('Deploy') {
+            steps {
+                sh """
+                . ${ENV_DIR}/bin/activate
+                gunicorn run:app -b 0.0.0.0:1234
+                """
+            }
+        }
     }
 
     post {
