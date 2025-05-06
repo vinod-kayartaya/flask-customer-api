@@ -41,7 +41,7 @@ pipeline {
                 $PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:
                 <br />
                 Check console output at $BUILD_URL to view the results.
-                """
+                """,
                 to: "vinod@vinod.co"
         }
         failure {
