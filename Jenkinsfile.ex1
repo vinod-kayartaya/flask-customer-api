@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    environment {
+        ENV_DIR = '.venv'
+        REQUIREMENTS_FILE = 'requirements.txt'
+    }
+
+    stages {
+        stage('Setup') {
+            steps {
+                echo 'setting up the virtual directory for python'
+                sh """
+                python -m venv ${ENV_DIR}
+                . ${ENV_DIR}/bin/activate
+                pip install -r ${REQUIREMENTS_FILE}
+                """
+            }
+        }
+    }
+}
