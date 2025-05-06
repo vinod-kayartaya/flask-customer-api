@@ -4,6 +4,7 @@ pipeline {
     environment {
         ENV_DIR = '.venv'
         REQUIREMENTS_FILE = 'requirements.txt'
+        PYTHON_VERSION = 3.12
     }
 
     stages {
@@ -11,7 +12,7 @@ pipeline {
             steps {
                 echo 'setting up the virtual directory for python'
                 sh """
-                python -m venv ${ENV_DIR}
+                python${PYTHON_VERSION} -m venv ${ENV_DIR}
                 . ${ENV_DIR}/bin/activate
                 pip install -r ${REQUIREMENTS_FILE}
                 """
