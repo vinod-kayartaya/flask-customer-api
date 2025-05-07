@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = 'learnwithvinod/flask-customer-api'
-        DOCKER_TAG = "${BUILD_NUMBER}"
+        DOCKER_TAG = "${BUILD_NUMBER}-beta"
         VENV_NAME = 'venv'
         // Define Docker Hub credentials ID (configured in Jenkins)
         DOCKER_CREDENTIALS = credentials('docker-login')
